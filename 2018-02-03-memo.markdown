@@ -1,0 +1,75 @@
+# 2018-02-03
+
+一月分の控えがフッ飛んだのでこちらに控えを格納。
+
+## 経緯
+
+X でキーボード入力ができなくなり (リカバリモードなどでは入力可能、あと X なインストーラでも入力可能で、ログを見てみるに clutter? な何かが原因で gnome-shell が例外吐いて落ちてた模様)、頭にキて再インストールしてしまった直後に
+
+- weblog エントリのバックアップ取得していない
+- chrome の設定とか
+- 他にもありましたが忘れた
+
+という諸々に気づきましたが時スデに遅し。
+
+## ということで
+
+以下に導入したパケジ含め、したことを列挙しておきます。今回色々困ったので。とりあえず導入した、と控えを取得しているパケジが以下です。
+
+ sudo
+- emacs
+- build-essential
+- git
+- docker
+- docker-compose
+- golang
+- rbenv (not debian package)
+- autoconf
+- bison
+- libssl-dev
+- libyaml-dev
+- libreadline6-dev
+- zlib1g-dev
+- libncurses5-dev
+- libffi-dev
+- libgdbm3
+- libgdbm-dev
+- chromium
+- tmux
+- uim-skk
+- scim-skk
+- skkdic
+- ddskk
+- gauche
+
+## 日本語環境
+
+どうにもならなくて困っていたのですが、とりあえず
+
+```
+update-alternatives --config uim-toolbar
+```
+
+から `uim-toolbar-gtk3` を選択してツールバーから (右下に出現) skk を選択したら変換とか日本語入力が可能になりました。ただし、現状では `emacs` にて `ddskk` が使えない状態になってて猛烈に不便。あと、`scratch` にて `scheme` な計算ができなくて微妙。
+
+## 泥箱
+
+`nautilus-dropbox` 導入して sync しています。
+
+## その他
+
+マウス関連については `dconf-tools` パケジを導入して `dconf-editor` を起動して
+
+- org / gnome / desktop / wm / preferences から `focus-mode` を mouse に
+
+あと、ctrl は `/etc/default/keyboard` の以下のエントリを修正。
+
+```
+XKBOPTIONS="ctrl:nocaps"
+```
+
+その他、以下なのかどうか。
+
+- コピペも不便なので要改善
+
+そしてこれから、octopress のエントリのサルベージに着手します。
