@@ -1,0 +1,28 @@
+# hugo 導入
+
+apt で導入した golang はバージョン古いらしくて /usr/local 配下に 1.9.3 を導入しました。それを使って以下。
+
+```
+$ go get github.com/kardianos/govendor
+$ govendor get github.com/gohugoio/hugo
+% go install github.com/gohugoio/hugo
+```
+
+GOPATH などはよしなに設定されています。
+
+<!-- more -->
+
+で、mhatta さんエントリにある移行コマンドを使いました。
+
+```
+$ hugo import jekyll octopressdir/source hugodir
+```
+
+Octopress なテーマがあったので導入。
+
+```
+$ git clone https://github.com/parsiya/Hugo-Octpress themes/Hugo-Octopress
+$ hugo server --theme=Hugo-Octopress
+```
+
+config.toml の作成必要なのかどうか。
