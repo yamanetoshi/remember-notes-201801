@@ -1,0 +1,42 @@
+# slug な yaml を追加する方法
+
+手順てきには以下?
+
+```
+import frontmatter
+
+with open("2013-11-02-book-purchase.markdown") as f:
+    post = frontmatter.loads(f.read())
+
+post.metadata.update({'slug' : "xxxx-xxx-xxx"})
+print(frontmatter.dumps(post))
+```
+
+ええと、ファイル名な文字列から最後の部分を取得するには、が確認必要なのですが、ファイル名が引数で渡されて、という形になってればよいのかな。。
+
+スクリプトが以下？
+
+```
+for i in content/post/* ; do
+  addSlub.sh $i > newcontent/post/$i
+done
+```
+
+あと、ファイル名から slug な文字列は以下で取得可能?
+
+```
+import os
+
+import re
+basestring = os.path.splitext(os.path.basename(filename))[0]
+re.sub(r'....-..-..-', '', basestring)
+```
+
+ファイル名は引数で取得するとして
+
+```
+args = sys.argv
+args[1] が最初の引数
+```
+
+で良いのかどうか。
