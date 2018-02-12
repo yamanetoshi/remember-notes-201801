@@ -1,0 +1,9 @@
+# emacs
+
+C-j が上書きされてて ddskk で漢字変換できないわ scratch で計算できないわで困っていたのですが、以下で回避できた。
+
+```
+$ XMODIFIERS=none emacs
+```
+
+修行が足らない。
